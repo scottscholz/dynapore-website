@@ -1,0 +1,7 @@
+# Old Wix URLs -> new pages
+/home2        /                      301
+/home2/*      /                      301
+/blank        /privacy/              301
+/imprint      /imprint/              301
+/beta         /contact/#request      301
+/beta/        /contact/#request      301
