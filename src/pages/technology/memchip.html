@@ -1,4 +1,4 @@
-<!--meta {"title": "How MemChip works | DynaPore", "description": "MemChip holds a stable lipid bilayer on a screen-printed electrode and reads it with impedance spectroscopy. Sample prep, workflow, kit and specifications.", "nav": "technology"} -->
+<!--meta {"title": "How MemChip works | DynaPore", "description": "MemChip holds a stable lipid bilayer on a proprietary surface above an electrode and reads it with impedance spectroscopy. How the membrane, surface and readout work together.", "nav": "technology"} -->
 
 <section class="hero" data-cta-after>
   <div class="wrap">
@@ -18,33 +18,25 @@
 </section>
 
 <section>
-  <div class="wrap split">
-    <div class="reveal" style="display:flex;justify-content:center">{{film:film-prep|film-prep-poster||portrait}}</div>
-    <div class="reveal">
-      <span class="eyebrow">Step 1 · Sample prep</span>
-      <h2 style="margin-top:12px">Vesicles with standard lab equipment.</h2>
-      <p class="lead" style="margin-top:14px">Nothing specific to MemChip: glass vials, a nitrogen stream, a vortex mixer and a mini-extruder.</p>
-      <ol class="bullets" style="counter-reset:s">
-        <li>Dispense lipid stocks into a glass vial</li>
-        <li>Dry the lipid film under nitrogen, then vacuum</li>
-        <li>Hydrate in buffer and vortex</li>
-        <li>Extrude 11 passes through a 100 nm membrane</li>
-        <li>Collect: about 1–6 mM lipid, ready for the chip</li>
-      </ol>
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow">The principle</span><h2>A real membrane, read electrically.</h2></div>
+    <div class="grid3 reveal">
+      <div class="card"><h3>Stable</h3><p>Tethers anchor the bilayer to our membrane surface, so it holds for days instead of minutes.</p></div>
+      <div class="card"><h3>Your lipids</h3><p>The bilayer forms from vesicles of your chosen composition and stays fluid, like a cell membrane.</p></div>
+      <div class="card"><h3>Label-free, real time</h3><p>Impedance tracks membrane integrity continuously. No dyes, no fluorescence, no washing steps.</p></div>
     </div>
   </div>
 </section>
 
 <section class="bg-video">
-  <div class="wrap">
-    <div class="section-head reveal"><span class="eyebrow">Step 2 · On the chip</span><h2>A stable membrane in under half an hour.</h2></div>
-    <div class="flow reveal">
-      <div class="fstep"><div class="fimg"><img src="{{@assets/img/guide-step-prepare.png}}" alt="Pipetting ethanol into the membrane chamber" loading="lazy"></div><span class="n">01</span><h3>Prepare the electrode</h3><p>Ethanol soak, rinse with buffer. Optional baseline EIS.</p></div>
-      <div class="fstep"><div class="fimg"><img src="{{@assets/img/guide-step-vesicles.png}}" alt="Vesicles added to the membrane chamber" loading="lazy"></div><span class="n">02</span><h3>Add 5 µL vesicles</h3><p>Covering the working electrode. Wait 2 minutes.</p></div>
-      <div class="fstep"><div class="fimg"><img src="{{@assets/img/guide-step-wash.png}}" alt="Chip washed in recording buffer" loading="lazy"></div><span class="n">03</span><h3>Seal and wash</h3><p>Mix in 5 µL sealing solution, wait 5 minutes, then wash gently.</p></div>
-      <div class="fstep"><div class="fimg"><img src="{{@assets/img/guide-step-record.png}}" alt="Chip inserted into the SPE adapter" loading="lazy"></div><span class="n">04</span><h3>Insert and record</h3><p>Into the SPE adapter: membrane EIS, then a time course at 270 Hz.</p></div>
+  <div class="wrap split">
+    <div class="reveal" style="display:flex;justify-content:center">{{film:film-prep|film-prep-poster||portrait}}</div>
+    <div class="reveal">
+      <span class="eyebrow">Workflow</span>
+      <h2 style="margin-top:12px">From vesicles to data in under half an hour.</h2>
+      <p class="lead" style="margin-top:14px">Vesicles are made with standard lab equipment. On the chip, they fuse into a sealed bilayer within minutes, ready to measure.</p>
+      <div class="timebar t3" style="margin-top:22px"><span>Vesicles · standard lab kit</span><span>Membrane · &lt;30 min</span><span>Readout · EIS</span></div>
     </div>
-    <div class="timebar reveal"><span>~10 min · pre-treatment + baseline</span><span>~5–10 min · bilayer formation</span></div>
   </div>
 </section>
 
@@ -52,14 +44,9 @@
   <div class="wrap split">
     <div class="reveal"><div class="media"><img src="{{@assets/media/eis-check-poster.jpg}}" alt="Impedance spectrum confirming membrane formation, from the How MemChip works video" loading="lazy"></div></div>
     <div class="reveal">
-      <span class="eyebrow">Step 3 · The readout</span>
+      <span class="eyebrow">The readout</span>
       <h2 style="margin-top:12px">Impedance spectroscopy on a standard potentiostat.</h2>
       <p class="lead" style="margin-top:14px">EIS-capable potentiostats are common equipment: many institutes already have one somewhere, often in an electrochemistry or biophysics group nearby.</p>
-      <ul class="bullets">
-        <li>Confirm the membrane with an EIS spectrum</li>
-        <li>Follow it continuously at 270 Hz, or with your own protocol</li>
-        <li>Runs on EIS-capable potentiostats via the SPE adapter</li>
-      </ul>
       <div style="margin-top:22px"><div class="card" style="padding:20px"><span class="eyebrow">Validated potentiostats</span><div class="chips" style="margin-top:12px"><span class="chip">PalmSens4</span><span class="chip">Sensit Smart</span><span class="chip">Sensit BT</span><span class="chip">Nexus</span></div><p style="font-size:14px;margin-top:12px">Many other EIS-capable potentiostats will likely work; they just haven't been tested yet.</p></div></div>
     </div>
   </div>
@@ -72,15 +59,12 @@
     </div>
     <div class="reveal">
       <span class="eyebrow">Kit and specifications</span>
-      <h2 style="margin-top:12px;margin-bottom:22px">What's in the box.</h2>
+      <h2 style="margin-top:12px;margin-bottom:22px">The chip.</h2>
       <table class="specs">
         <tr><th>Sensor dimensions</th><td>35 × 15 mm</td></tr>
         <tr><th>Membrane diameter</th><td>0.5 mm</td></tr>
         <tr><th>Measurement</th><td>Electrochemical impedance spectroscopy</td></tr>
-        <tr><th>MemChip</th><td>store dry, 10–25 °C</td></tr>
-        <tr><th>SPE adapter</th><td>ambient</td></tr>
-        <tr><th>Sealing solution</th><td>ambient</td></tr>
-        <tr><th>Positive control vesicles</th><td>4–8 °C</td></tr>
+        <tr><th>Kit</th><td>MemChips, SPE adapter, sealing solution, positive control vesicles</td></tr>
       </table>
       <p class="caption">Research use only. Quick guide available with trial samples.</p>
     </div>

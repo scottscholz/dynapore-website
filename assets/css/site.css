@@ -345,3 +345,7 @@ section{padding:88px 0}
 .form label{min-width:0}
 .form input,.form select,.form textarea{width:100%;min-width:0;box-sizing:border-box}
 #notify-footer:target{outline:2px solid var(--aqua);outline-offset:6px;border-radius:999px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid3 .card h3{margin-bottom:8px}
+.timebar.t3{grid-template-columns:1fr 1fr 1fr}
+@media(max-width:760px){.grid3,.timebar.t3{grid-template-columns:1fr}}
