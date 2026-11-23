@@ -186,8 +186,8 @@ def callout(xa, ya, y, t, sub):
             + text(488, y+4, t, 13, INK, 'start', 700) + text(488, y+21, sub, 11, MUTED))
 b.append(callout(394, 78, 54, 'Lipid bilayer', 'your composition, mobile lipids'))
 b.append(callout(338, 116, 120, 'Tethers', 'hold the membrane in place'))
-b.append(callout(396, 127, 184, 'Membrane surface', 'proprietary layer on the electrode'))
-files2 = {'anatomy': svg(720, 240, ''.join(b), 'MemChip anatomy: a lipid bilayer held by tethers on a proprietary membrane surface above the electrode')}
+b.append(callout(396, 127, 184, 'Support layer', 'proprietary architecture above an electrode'))
+files2 = {'anatomy': svg(800, 240, ''.join(b), 'MemChip anatomy: a lipid bilayer held by tethers on a proprietary membrane surface above the electrode')}
 for k, v in files2.items():
     open(os.path.join(OUT, k + '.svg'), 'w').write(v)
 print('wrote anatomy')
