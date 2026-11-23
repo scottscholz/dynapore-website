@@ -340,3 +340,8 @@ section{padding:88px 0}
 .fig{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;align-items:center}
 .fig img{width:100%;max-width:420px;height:auto;image-rendering:auto}
 .fig figcaption{font-size:14px;color:var(--muted);margin-top:10px;text-align:center}
+
+/* fixes */
+.form label{min-width:0}
+.form input,.form select,.form textarea{width:100%;min-width:0;box-sizing:border-box}
+#notify-footer:target{outline:2px solid var(--aqua);outline-offset:6px;border-radius:999px}

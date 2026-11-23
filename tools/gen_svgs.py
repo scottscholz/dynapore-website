@@ -133,10 +133,10 @@ def assay(left_extra, right_kind, title_l, title_m, title_r, label, gap=None, mi
     b.append(text(612, 192, title_r, 11, INK, 'middle', 500))
     return svg(720, 220, ''.join(b), label)
 
-files['assay-lnp'] = assay('', 'sigmoid', 'endosome-like membrane', 'add LNPs, drop to pH 6.0', 'fusion as admittance',
-    'Assay: endosome-like membrane, add lipid nanoparticles, read the membrane signal in real time',
+files['assay-lnp'] = assay('', 'decay', 'endosomal membrane mimic', 'add LNPs, drop to pH 6.0', 'fusion: admittance drops',
+    'Assay: endosomal membrane mimic, add lipid nanoparticles, read the membrane signal in real time',
     mid_extra=lnp(80, 50) + lnp(150, 42, 15) + lnp(118, 76, 13))
-files['assay-amp'] = assay('', 'sigmoid', 'bacterial mimic (PE/PG)', 'add peptide', 'ion flow as admittance',
+files['assay-amp'] = assay('', 'sigmoid', 'bacterial membrane mimic', 'add peptide', 'ion flow as admittance',
     'Assay: bacterial-like membrane, add antimicrobial peptide, follow membrane disruption', gap=(104, 128),
     mid_extra=peptide(116, 98, 90) + peptide(116, 120, 90) + peptide(60, 60, 10) + peptide(170, 56, -15))
 files['assay-sensor'] = assay('', 'step', 'tethered bilayer', 'insert channel + analyte', 'admittance change',
