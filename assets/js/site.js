@@ -56,12 +56,43 @@
     rs.forEach(function(r){ ro.observe(r); });
   } else rs.forEach(function(r){ r.classList.add('in'); });
 
-  /* forms: until the HubSpot embed is connected, show a note instead of sending */
-  document.querySelectorAll('form[data-placeholder-form]').forEach(function(f){
+  /* forms: sent straight to HubSpot (portal 148400725, EU data centre) */
+  var HS_PORTAL = '148400725';
+  var HS_FORMS = {
+    trial: 'e475f4ae-1c12-41ab-b0c8-3f39c85b61b8',   /* Website: Trial sample request */
+    contact: '2ef76fdf-b2ef-4745-afe6-9fef89781d79', /* Website: Contact */
+    notify: 'eef0d7f1-1594-471b-b390-1f3604897573'   /* Website: Notify me at launch */
+  };
+  var DONE = {
+    trial: 'Thank you. We have your request and will be in touch within a few working days.',
+    contact: 'Thank you. We will get back to you soon.',
+    notify: 'Thanks, we will let you know when MemChip launches.'
+  };
+  function val(f, n){ var e = f.elements[n]; return e ? String(e.value || '').trim() : ''; }
+  document.querySelectorAll('form[data-hs-form]').forEach(function(f){
+    var kind = f.getAttribute('data-hs-form');
+    var msg = f.querySelector('.form-msg') || (f.nextElementSibling && f.nextElementSibling.classList.contains('form-msg') ? f.nextElementSibling : null);
+    function show(t, ok){ if (!msg) return; msg.textContent = t; msg.style.display = 'block'; msg.style.background = ok ? '' : '#fbebeb'; }
     f.addEventListener('submit', function(e){
       e.preventDefault();
-      var m = f.querySelector('.form-msg') || f.parentNode.querySelector('.form-msg');
-      if (m) { m.style.display = 'block'; }
+      var btn = f.querySelector('button[type=submit]'); if (btn) btn.disabled = true;
+      var fields = [{name: 'email', value: val(f, 'email')}];
+      if (val(f, 'firstname')) fields.push({name: 'firstname', value: val(f, 'firstname')});
+      if (val(f, 'lastname')) fields.push({name: 'lastname', value: val(f, 'lastname')});
+      var lines = [];
+      if (kind === 'trial') {
+        lines.push('TRIAL SAMPLE REQUEST', 'Institution: ' + val(f, 'institution'), 'Application: ' + val(f, 'application'), 'Potentiostat: ' + (val(f, 'potentiostat') || 'not given'));
+      } else if (kind === 'contact') {
+        lines.push('WEBSITE CONTACT', 'Topic: ' + val(f, 'topic'));
+      }
+      if (val(f, 'details')) lines.push('', val(f, 'details'));
+      if (lines.length) fields.push({name: 'message', value: lines.join('\n')});
+      var body = JSON.stringify({fields: fields, context: {pageUri: location.href, pageName: document.title}});
+      var url = 'https://api-eu1.hsforms.com/submissions/v3/integration/submit/' + HS_PORTAL + '/' + HS_FORMS[kind];
+      fetch(url, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: body})
+        .then(function(r){ if (!r.ok) throw new Error(r.status); f.reset(); show(DONE[kind], true); })
+        .catch(function(){ show('Sorry, that did not go through. Please email info@dynaporetech.com instead.', false); })
+        .then(function(){ if (btn) btn.disabled = false; });
     });
   });
 })();

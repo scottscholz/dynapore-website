@@ -17,20 +17,23 @@
         <span class="eyebrow">Early-access program</span>
         <h3>Request trial samples</h3>
         <p>You have an EIS-capable potentiostat. We send trial chips (slides on request) with the quick guide, and help you read your data. We send 3 chips per trial (more on special request). In return: your feedback.</p>
-        <form class="form" data-placeholder-form style="margin-top:22px">
+        <form class="form" data-hs-form="trial" style="margin-top:22px">
           <div class="row">
-            <label>Name<input required autocomplete="name"></label>
-            <label>Email<input type="email" required autocomplete="email"></label>
+            <label>First name<input name="firstname" required autocomplete="given-name"></label>
+            <label>Last name<input name="lastname" required autocomplete="family-name"></label>
           </div>
           <div class="row">
-            <label>Institution or company<input required autocomplete="organization"></label>
-            <label>Application<select required><option value="">Choose…</option><option>Lipid nanoparticles</option><option>Antimicrobial peptides</option><option>Membrane-based sensors</option><option>Other</option></select></label>
+            <label>Email<input name="email" type="email" required autocomplete="email"></label>
+            <label>Institution or company<input name="institution" required autocomplete="organization"></label>
           </div>
-          <label>Your potentiostat model<input placeholder="e.g. PalmSens4, Sensit Smart, Sensit BT, Nexus"></label>
-          <label>What do you want to measure?<textarea rows="3"></textarea></label>
+          <div class="row">
+            <label>Application<select name="application" required><option value="">Choose…</option><option>Lipid nanoparticles</option><option>Antimicrobial peptides</option><option>Membrane-based sensors</option><option>Other</option></select></label>
+            <label>Your potentiostat model<input name="potentiostat" placeholder="e.g. PalmSens4, Sensit Smart, Sensit BT, Nexus"></label>
+          </div>
+          <label>What do you want to measure?<textarea name="details" rows="3"></textarea></label>
           <div><button class="btn btn-primary" type="submit">Request trial samples</button></div>
           <p class="note">We use your details only to respond to this request. See <a href="{{/privacy/}}">Datenschutz</a>.</p>
-          <p class="form-msg">Preview: this form connects to HubSpot before launch.</p>
+          <p class="form-msg" role="status"></p>
         </form>
       </div>
       <div class="card reveal">
@@ -41,6 +44,18 @@
           <li><span><a class="textlink" href="https://meetings-eu1.hubspot.com/gauri-gangapurwala" rel="noopener">Book a meeting</a></span></li>
           <li><span>DynaPore · Max Planck Institute for Terrestrial Microbiology<br>Karl-von-Frisch-Straße 10, 35043 Marburg, Germany</span></li>
         </ul>
+        <form class="form" data-hs-form="contact" style="margin-top:18px">
+          <div class="row">
+            <label>First name<input name="firstname" required autocomplete="given-name"></label>
+            <label>Last name<input name="lastname" required autocomplete="family-name"></label>
+          </div>
+          <label>Email<input name="email" type="email" required autocomplete="email"></label>
+          <label>Topic<select name="topic"><option>General question</option><option>Collaboration</option><option>Partnering or investment</option><option>Other</option></select></label>
+          <label>Message<textarea name="details" rows="4" required></textarea></label>
+          <div><button class="btn btn-ghost" type="submit">Send</button></div>
+          <p class="note">See <a href="{{/privacy/}}">Datenschutz</a>.</p>
+          <p class="form-msg" role="status"></p>
+        </form>
         <p style="margin-top:22px;font-size:15px">No potentiostat yet? MemChip runs on EIS-capable potentiostats from our validated list. <a class="textlink" href="{{/technology/memchip/}}">See what you need</a></p>
       </div>
     </div>
