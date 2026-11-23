@@ -180,7 +180,7 @@ for k, v in files.items():
 print('wrote', len(files), 'svgs')
 
 # ---- anatomy (720x240), generic: electrode, tethers, bilayer ----
-b = [f'<rect width="720" height="240" rx="18" fill="#F6F7FA"/>', bilayer(50, 390, 78, 26)]
+b = [f'<rect width="800" height="240" rx="18" fill="#F6F7FA"/>', bilayer(50, 390, 78, 26)]
 def callout(xa, ya, y, t, sub):
     return (f'<path d="M{xa} {ya} H440 L460 {y} H478" stroke="{TEAL}" stroke-width="1.6" fill="none"/><circle cx="{xa}" cy="{ya}" r="3.2" fill="{TEAL}"/>'
             + text(488, y+4, t, 13, INK, 'start', 700) + text(488, y+21, sub, 11, MUTED))
