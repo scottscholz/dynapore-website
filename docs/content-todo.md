@@ -3,7 +3,7 @@
 Removed from the site until available (re-add where noted).
 
 ## Data
-- [ ] Detergent disruption trace: home "Our experimental results" + AMP page "What you can do" (left column, was split wide-left)
+- [x] Detergent disruption trace (Triton X-100): added to home + AMP page
 - [ ] LNP formulation comparison (pending permission to use): home results + LNP page
 - [ ] AMP peptide comparison (bacterial vs mammalian membrane mimic): AMP page
 - [ ] Channel/pore insertion trace: Membrane sensors page

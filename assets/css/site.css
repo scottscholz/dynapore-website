@@ -352,3 +352,5 @@ section{padding:88px 0}
 .person .photo img{width:100%;height:100%;object-fit:cover;display:block}
 .person .bio{font-size:14.5px;color:var(--muted);margin-top:10px;line-height:1.5}
 .person .li{display:inline-block;margin-top:10px;font-family:var(--mono);font-size:12.5px;color:var(--teal-dark)}
+.tiles.results2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:760px){.tiles.results2{grid-template-columns:1fr}}
