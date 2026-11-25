@@ -130,6 +130,16 @@ def build():
             count += 1
     if not PREVIEW:
         shutil.copy(os.path.join(ROOT, 'src/_redirects'), os.path.join(OUT, '_redirects'))
+        # GitHub Pages: custom domain + redirect stubs for old Wix URLs
+        open(os.path.join(OUT, 'CNAME'), 'w').write('dynaporetech.com\n')
+        open(os.path.join(OUT, '.nojekyll'), 'w').write('')
+        for old_path, target in [('home2', '/'), ('blank', '/privacy/'), ('beta', '/contact/#request')]:
+            d = os.path.join(OUT, old_path); os.makedirs(d, exist_ok=True)
+            open(os.path.join(d, 'index.html'), 'w').write(
+                '<!DOCTYPE html><meta charset="utf-8"><title>Redirecting</title>'
+                '<link rel="canonical" href="https://dynaporetech.com%s">'
+                '<meta http-equiv="refresh" content="0; url=%s">'
+                '<a href="%s">Continue</a>' % (target, target, target))
     leftover = []
     for dirpath, _, files in os.walk(OUT):
         for f in files:
