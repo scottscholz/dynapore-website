@@ -74,7 +74,11 @@ def render(text, route, nav):
         return prefix + out_path(path) + anchor
     def asset(m):
         p = m.group(1)
-        return (prefix + p) if PREVIEW else '/' + p
+        url = (prefix + p) if PREVIEW else '/' + p
+        if p.endswith(('.css', '.js')):
+            import hashlib
+            url += '?v=' + hashlib.md5(open(os.path.join(ROOT, p), 'rb').read()).hexdigest()[:8]
+        return url
     def vid(m):
         parts = m.group(1).split('|')
         src, poster = parts[0], parts[1]
